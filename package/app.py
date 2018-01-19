@@ -17,9 +17,9 @@ from docopt import docopt
 
 def main():
   args = docopt(__doc__)
-  if args['-d']:
+  if args['--debug']:
     print(args)
-  print(args['ECHO'])
+  print(args['--echo'])
 
 
 if __name__ == "__main__":
