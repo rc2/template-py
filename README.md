@@ -35,3 +35,19 @@ pip install dist/*
 ```
 yes | pip uninstall package
 ```
+
+---
+
+## examples
+
+### pip install package from repo
+
+```
+pip install git+https://github.com/rc2/python-template.git@BRANCH#wheel=PACKAGE_NAME
+```
+
+### pip install package from repo subfolder
+
+```
+pip install git+https://github.com/rc2/python-template.git@BRANCH#wheel=PACKAGE_NAME&subdirectory=SUBFOLDER
+```
