@@ -1,7 +1,7 @@
 import pytest
 
 # package import for test
-from package.sub_package.methods import returns_true
+from python_template.sub_package.methods import returns_true
 
 
 # test if returns_true returns true
