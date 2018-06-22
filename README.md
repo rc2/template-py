@@ -68,7 +68,7 @@ python setup.py bdist_wheel
 pip install --user dist/*
 ```
 
-### From git repo sub-folder
+#### From git repo sub-folder
 
 ```
 pip install --user 'git+https://github.com/rc2/python-template.git@develop#wheel=python_template&subdirectory=app'
