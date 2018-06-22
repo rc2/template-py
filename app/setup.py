@@ -43,6 +43,8 @@ def main():
     description='python template',
     url='https://github.com/rc2/python-template',
     packages=find_packages(exclude=['test']),
+    package_data={package: ['VERSION']},
+    include_package_data=True,
     long_description=read_file(setup_folder, 'README.md'),
     distclass=BinaryDistribution,
     install_requires=get_requirements(setup_folder, 'requirements.txt'),
