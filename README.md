@@ -74,7 +74,7 @@ pip install --user dist/*
 pip install --user 'git+https://github.com/rc2/python-template.git@develop#wheel=python_template&subdirectory=app'
 ```
 
-## Uninstall
+### Uninstall
 
 **container**
 
