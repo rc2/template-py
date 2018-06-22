@@ -15,10 +15,18 @@ def read_file(*path):
   return open(os.path.join(*path)).read()
 
 
+def get_requirements(*requirements_path):
+  requirements = []
+  for requirement in open(os.path.join(*requirements_path)).readlines():
+    requirement = requirement.strip()
+    requirements.append(requirement)
+  return requirements
+
+
 def main():
 
   setup_folder = os.path.abspath(os.path.dirname(__file__))
-  package = 'package'
+  package = 'python_template'
 
   os.chdir(setup_folder)
 
@@ -32,6 +40,7 @@ def main():
     packages=find_packages(exclude=['test']),
     long_description=read_file(setup_folder, 'README.md'),
     distclass=BinaryDistribution,
+    install_requires=get_requirements(setup_folder, 'requirements.txt'),
     entry_points={
       'console_scripts': [
         '{command} = {package}.{file}:{entrypoint}'.format(
