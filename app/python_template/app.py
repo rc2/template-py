@@ -16,8 +16,9 @@ options:
 """
 from docopt import docopt
 import sys
+import os
 
-sys.path.append('.')
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from version import VERSION
 
 
