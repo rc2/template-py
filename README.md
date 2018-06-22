@@ -20,6 +20,22 @@ This is an example python template.
 make console
 ```
 
+### Building developer container (without launching)
+
+**host**
+
+```bash
+make env-build
+```
+
+**host**
+
+Force rebuild
+
+```bash
+make env-rebuild
+```
+
 ### Run tests
 
 **host**
