@@ -17,5 +17,6 @@ env-up: env-build
 env-build:
 	USERID=${USERID} GROUPID=${GROUPID} docker-compose -f compose.yml build
 
+
 env-rebuild:
 	USERID=${USERID} GROUPID=${GROUPID} docker-compose -f compose.yml build --no-cache
