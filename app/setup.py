@@ -2,6 +2,11 @@ import os
 from setuptools import setup
 from setuptools import find_packages
 from setuptools.dist import Distribution
+import sys
+
+sys.path.append('.')
+from python_template.version import VERSION
+
 
 # to build run: `python setup.py bdist_wheel`
 
@@ -32,7 +37,7 @@ def main():
 
   setup(
     name=package,
-    version=read_file(setup_folder, package, 'VERSION'),
+    version=VERSION,
     author='rc2',
     author_email='',
     description='python template',
