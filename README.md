@@ -1,53 +1,69 @@
 # README
 
-## clean
+This is an example python template.
 
-```
-find . -type d -iname "__pycache__" -exec rm -r {} \;
+
+## Requirements
+
+- make
+- docker
+- docker-compose
+
+## How to
+
+
+### Use developer container
+
+**host**
+
+```bash
+make console
 ```
 
-## install dependencies
+### Run tests
 
-```
-pip install -r requirements.txt
+**host**
+
+```bash
+make test
 ```
 
-## run tests
+**container**
 
-```
+```bash
 pytest
 ```
 
-## build
+### Build
 
-```
+**container**
+
+```bash
 python setup.py bdist_wheel
 ```
 
-## install app
+### Install
+
+#### From build directory
+
+**container**
+
+```bash
+pip install --user dist/*
+```
+
+### From git repo sub-folder
 
 ```
-pip install dist/*
+pip install --user 'git+https://github.com/rc2/python-template.git@develop#wheel=python_template&subdirectory=app'
 ```
 
-## uninstall app
+## Uninstall
+
+**container**
 
 ```
-yes | pip uninstall package
+yes | pip uninstall python-template
 ```
 
 ---
-
-## examples
-
-### pip install package from repo
-
-```
-pip install git+https://github.com/rc2/python-template.git@BRANCH#wheel=PACKAGE_NAME
-```
-
-### pip install package from repo subfolder
-
-```
-pip install git+https://github.com/rc2/python-template.git@BRANCH#wheel=PACKAGE_NAME&subdirectory=SUBFOLDER
-```
