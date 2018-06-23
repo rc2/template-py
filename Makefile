@@ -3,11 +3,11 @@ $(eval GROUPID = $(shell id --group))
 
 
 build: env-up
-	docker exec -it python-node python setup.py bdist_wheel
+	docker exec -it python-template python setup.py bdist_wheel
 
 
 console: env-up
-	docker exec -it python-node bash
+	docker exec -it python-template bash
 
 
 env-up: env-build
