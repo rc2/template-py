@@ -1,6 +1,6 @@
 # README
 
-This is an example python template.
+This is an example template py.
 
 
 ## Requirements
@@ -31,7 +31,7 @@ PIPENV_VENV_IN_PROJECT=1 pipenv shell
 - Set `PYTHONPATH` to the `./app` folder and run the command line interface
 
 ```bash
-PYTHONPATH=app python ./app/python_template/cli.py
+PYTHONPATH=app python ./app/template_py/cli.py
 ```
 
 ### Add dependencies
@@ -90,13 +90,13 @@ pip install --user ./app/dist/*
 #### From git repo sub-folder
 
 ```
-pip install --user 'git+https://github.com/rc2/python-template.git@develop#wheel=python_template&subdirectory=app'
+pip install --user 'git+https://github.com/rc2/template-py.git@develop#wheel=template_py&subdirectory=app'
 ```
 
 ### Use
 
 ```bash
-python_template help
+template_py help
 ```
 
 ### Uninstall
@@ -104,7 +104,7 @@ python_template help
 **container**
 
 ```
-yes | pip uninstall python_template
+yes | pip uninstall template_py
 ```
 
 ---

@@ -5,7 +5,7 @@ from setuptools.dist import Distribution
 import sys
 
 sys.path.append('.')
-from python_template.version import VERSION
+from template_py.version import VERSION
 
 
 # to build run: `python setup.py bdist_wheel`
@@ -23,7 +23,7 @@ def read_file(*path):
 def main():
 
   setup_folder = os.path.abspath(os.path.dirname(__file__))
-  package = 'python_template'
+  package = 'template_py'
 
   os.chdir(setup_folder)
 
@@ -32,8 +32,8 @@ def main():
     version=VERSION,
     author='rc2',
     author_email='',
-    description='python template',
-    url='https://github.com/rc2/python-template',
+    description='template py',
+    url='https://github.com/rc2/template-py',
     packages=find_packages(exclude=['test']),
     package_data={package: ['VERSION']},
     include_package_data=True,
@@ -42,7 +42,7 @@ def main():
     entry_points={
       'console_scripts': [
         '{command} = {package}.{file}:{entrypoint}'.format(
-          command='python_template',
+          command='template_py',
           package=package,
           file='cli',
           entrypoint='main',

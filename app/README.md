@@ -1,3 +1,3 @@
 # description
 
-python-template
+template-py

@@ -8,7 +8,7 @@ from pytest_bdd import (
     when,
 )
 
-from python_template.sub_package.methods import add
+from template_py.sub_package.methods import add
 
 @scenario('features/addition.feature', 'Add two numbers')
 def test_add_two_numbers():

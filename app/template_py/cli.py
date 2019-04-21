@@ -1,19 +1,19 @@
 #!python
 """
-python_template
+template_py
 
 usage:
-  python_template debug
-  python_template echo <text>
-  python_template hello
-  python_template help
+  template_py debug
+  template_py echo <text>
+  template_py hello
+  template_py help
 
 """
 from docopt import docopt
 import sys
 import os
 
-from python_template.version import VERSION
+from template_py.version import VERSION
 
 
 def main():
