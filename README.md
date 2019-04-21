@@ -5,46 +5,65 @@ This is an example python template.
 
 ## Requirements
 
-- make
-- docker
-- docker-compose
+- pip
+- pipenv
+
+```bash
+pip install pipenv --user
+```
 
 ## How to
 
-
-### Use developer container
-
-**host**
+### Install dependencies and setup virtual environment
 
 ```bash
-make console
+PIPENV_VENV_IN_PROJECT=1 pipenv install --dev
 ```
 
-### Building developer container (without launching)
-
-**host**
+### Start the development shell
 
 ```bash
-make env-build
+PIPENV_VENV_IN_PROJECT=1 pipenv shell
 ```
 
-**host**
+### Run the app's command line tool (during development mode)
 
-Force rebuild
+- Set `PYTHONPATH` to the `./app` folder and run the command line interface
 
 ```bash
-make env-rebuild
+PYTHONPATH=app python ./app/python_template/cli.py
 ```
+
+### Add dependencies
+
+Install a package
+
+```bash
+pipenv install PACKAGE
+```
+
+Install a package used in development only
+
+```bash
+pipenv install --dev PACKAGE
+```
+
+Update the `requirements.txt` file
+
+```bash
+pipenv lock -r > ./app/requirements.txt
+```
+
+### Convert features into test files
+
+```bash
+pytest-bdd generate ./app/test/features/FEATURE.feature > ./app/test/test_FEATURE.feature
+```
+
 
 ### Run tests
 
-**host**
-
-```bash
-make test
-```
-
-**container**
+- **context**: from within a `pipenv` shell
 
 ```bash
 pytest
@@ -52,20 +71,20 @@ pytest
 
 ### Build
 
-**container**
+- **context**: from within a `pipenv` shell
 
 ```bash
-python setup.py bdist_wheel
+python app/setup.py bdist_wheel
 ```
 
 ### Install
 
 #### From build directory
 
-**container**
+- **context**: from within a `pipenv` shell
 
 ```bash
-pip install --user dist/*
+pip install --user ./app/dist/*
 ```
 
 #### From git repo sub-folder
@@ -74,12 +93,18 @@ pip install --user dist/*
 pip install --user 'git+https://github.com/rc2/python-template.git@develop#wheel=python_template&subdirectory=app'
 ```
 
+### Use
+
+```bash
+python_template help
+```
+
 ### Uninstall
 
 **container**
 
 ```
-yes | pip uninstall python-template
+yes | pip uninstall python_template
 ```
 
 ---

@@ -1,2 +1,2 @@
-pytest==3.2.2
+-i https://pypi.org/simple
 docopt==0.6.2
