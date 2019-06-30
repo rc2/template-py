@@ -1,15 +1,25 @@
 # README
 
-This is an example template py.
+## Purpose
+
+This is an example template meant for development of python packages. It is meant to be simple to adapt and get a new python project up and running.
+
+## Notes
+
+- Uses `pipenv` for easy setup
+- The sub-folder `app/` contains the project source
+- Tests are run using `pytest`
+  - Gherkin "features" are supported with [`pytest-bdd`](https://pypi.org/project/pytest-bdd/)
 
 
 ## Requirements
 
-- pip
+- python3
+- pip3
 - pipenv
 
 ```bash
-pip install pipenv --user
+pip3 install pipenv --user
 ```
 
 ## How to
@@ -36,19 +46,19 @@ PYTHONPATH=app python ./app/template_py/cli.py
 
 ### Add dependencies
 
-Install a package
+#### Install a package
 
 ```bash
 pipenv install PACKAGE
 ```
 
-Install a package used in development only
+#### Install a package used in development only
 
 ```bash
 pipenv install --dev PACKAGE
 ```
 
-Update the `requirements.txt` file
+#### Update the `requirements.txt` file
 
 ```bash
 pipenv lock -r > ./app/requirements.txt
@@ -81,16 +91,14 @@ python app/setup.py bdist_wheel
 
 #### From build directory
 
-- **context**: from within a `pipenv` shell
-
 ```bash
-pip install --user ./app/dist/*
+pip3 install --user ./app/dist/template_py-$(cat ./app/template_py/VERSION)-py3-none-any.whl
 ```
 
 #### From git repo sub-folder
 
 ```
-pip install --user 'git+https://github.com/rc2/template-py.git@develop#wheel=template_py&subdirectory=app'
+pip3 install --user 'git+https://github.com/rc2/template-py.git@develop#wheel=template_py&subdirectory=app'
 ```
 
 ### Use
@@ -101,10 +109,8 @@ template_py help
 
 ### Uninstall
 
-**container**
-
 ```
-yes | pip uninstall template_py
+pip3 uninstall -y template_py
 ```
 
 ---
