@@ -1,50 +1,79 @@
 # README
 
-This is an example python template.
+## Purpose
+
+This is an example template meant for development of python packages. It is meant to be simple to adapt and get a new python project up and running.
+
+## Notes
+
+- Uses `pipenv` for easy setup
+- The sub-folder `app/` contains the project source
+- Tests are run using `pytest`
+  - Gherkin "features" are supported with [`pytest-bdd`](https://pypi.org/project/pytest-bdd/)
 
 
 ## Requirements
 
-- make
-- docker
-- docker-compose
+- python3
+- pip3
+- pipenv
+
+```bash
+pip3 install pipenv --user
+```
 
 ## How to
 
-
-### Use developer container
-
-**host**
+### Install dependencies and setup virtual environment
 
 ```bash
-make console
+PIPENV_VENV_IN_PROJECT=1 pipenv install --dev
 ```
 
-### Building developer container (without launching)
-
-**host**
+### Start the development shell
 
 ```bash
-make env-build
+PIPENV_VENV_IN_PROJECT=1 pipenv shell
 ```
 
-**host**
+### Run the app's command line tool (during development mode)
 
-Force rebuild
+- Set `PYTHONPATH` to the `./app` folder and run the command line interface
 
 ```bash
-make env-rebuild
+PYTHONPATH=app python ./app/template_py/cli.py
 ```
+
+### Add dependencies
+
+#### Install a package
+
+```bash
+pipenv install PACKAGE
+```
+
+#### Install a package used in development only
+
+```bash
+pipenv install --dev PACKAGE
+```
+
+#### Update the `requirements.txt` file
+
+```bash
+pipenv lock -r > ./app/requirements.txt
+```
+
+### Convert features into test files
+
+```bash
+pytest-bdd generate ./app/test/features/FEATURE.feature > ./app/test/test_FEATURE.feature
+```
+
 
 ### Run tests
 
-**host**
-
-```bash
-make test
-```
-
-**container**
+- **context**: from within a `pipenv` shell
 
 ```bash
 pytest
@@ -52,34 +81,36 @@ pytest
 
 ### Build
 
-**container**
+- **context**: from within a `pipenv` shell
 
 ```bash
-python setup.py bdist_wheel
+python app/setup.py bdist_wheel
 ```
 
 ### Install
 
 #### From build directory
 
-**container**
-
 ```bash
-pip install --user dist/*
+pip3 install --user ./app/dist/template_py-$(cat ./app/template_py/VERSION)-py3-none-any.whl
 ```
 
 #### From git repo sub-folder
 
 ```
-pip install --user 'git+https://github.com/rc2/python-template.git@develop#wheel=python_template&subdirectory=app'
+pip3 install --user 'git+https://github.com/rc2/template-py.git@develop#wheel=template_py&subdirectory=app'
+```
+
+### Use
+
+```bash
+template_py help
 ```
 
 ### Uninstall
 
-**container**
-
 ```
-yes | pip uninstall python-template
+pip3 uninstall -y template_py
 ```
 
 ---

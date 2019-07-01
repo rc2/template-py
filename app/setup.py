@@ -5,7 +5,7 @@ from setuptools.dist import Distribution
 import sys
 
 sys.path.append('.')
-from python_template.version import VERSION
+from template_py.version import VERSION
 
 
 # to build run: `python setup.py bdist_wheel`
@@ -20,18 +20,10 @@ def read_file(*path):
   return open(os.path.join(*path)).read()
 
 
-def get_requirements(*requirements_path):
-  requirements = []
-  for requirement in open(os.path.join(*requirements_path)).readlines():
-    requirement = requirement.strip()
-    requirements.append(requirement)
-  return requirements
-
-
 def main():
 
   setup_folder = os.path.abspath(os.path.dirname(__file__))
-  package = 'python_template'
+  package = 'template_py'
 
   os.chdir(setup_folder)
 
@@ -40,20 +32,19 @@ def main():
     version=VERSION,
     author='rc2',
     author_email='',
-    description='python template',
-    url='https://github.com/rc2/python-template',
+    description='template py',
+    url='https://github.com/rc2/template-py',
     packages=find_packages(exclude=['test']),
     package_data={package: ['VERSION']},
     include_package_data=True,
     long_description=read_file(setup_folder, 'README.md'),
     distclass=BinaryDistribution,
-    install_requires=get_requirements(setup_folder, 'requirements.txt'),
     entry_points={
       'console_scripts': [
         '{command} = {package}.{file}:{entrypoint}'.format(
-          command='app',
+          command='template_py',
           package=package,
-          file='app',
+          file='cli',
           entrypoint='main',
         )
       ]
