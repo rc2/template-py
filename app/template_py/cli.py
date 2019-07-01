@@ -14,6 +14,7 @@ import sys
 import os
 
 from template_py.version import VERSION
+from template_py.sub_package.methods import echo
 
 
 def main():
@@ -22,7 +23,7 @@ def main():
     print(args)
     return
   if args['echo']:
-    print(args['<text>'])
+    echo(args['<text>'])
     return
   if args['hello']:
     print("hello")
