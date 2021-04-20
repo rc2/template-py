@@ -1,2 +1,2 @@
--i https://pypi.org/simple
+-i https://pypi.org/simple/
 docopt==0.6.2
